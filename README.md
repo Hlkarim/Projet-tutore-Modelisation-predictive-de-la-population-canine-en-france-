@@ -97,3 +97,7 @@ rf_final = RandomForestRegressor(
     n_jobs=-1
 )
 ```
+
+## liens vers galerie
+
+https://github.com/Hlkarim/Projet-tutore-Modelisation-predictive-de-la-population-canine-en-france-/blob/main/README.md
