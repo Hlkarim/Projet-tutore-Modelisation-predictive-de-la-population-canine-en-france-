@@ -1,6 +1,3 @@
-Voici le contenu mis en forme en Markdown, selon le style Obsidian.md que vous préférez :
-
-
 # Annexes
 
 ## Annexe 1 - Description des colonnes et variables du jeu de données ICAD
