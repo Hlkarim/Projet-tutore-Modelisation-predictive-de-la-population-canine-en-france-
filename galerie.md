@@ -33,8 +33,7 @@ Graphiques liés à la modélisation et aux résidus
 | **Distribution des residus.png**            | Distribution des résidus du modèle final (histogramme).                                         | ![Distribution résidus](graphics/Distribution%20des%20residus.png)                            |
 | **Performance risidus modele final.png**     | Performance du modèle final (métriques : MAE, R²) basée sur les résidus.                      | ![Performance modèle](graphics/Performance%20risidus%20modele%20final.png)                     |
 | **risidues_map.png**                         | Cartographie spatiale des résidus du modèle.                                                    | ![Carte résidus](graphics/risidues_map.png)                                                    |
-| **lisa_residus.png**                         | Analyse LISA (Local Indicators of Spatial Association) des résidus.                              | ![LISA résidus](graphics/lisa_residus.png)                                                      |
-| **moran_risidues_map.png**                   | Cartographie des résidus avec indice de Moran (autocorrélation spatiale).                       | ![Moran résidus](graphics/moran_risidues_map.png)                                               |
+| **lisa_residus.png**                         | Analyse LISA (Local Indicators of Spatial Association) des résidus.                              | ![LISA résidus](graphics/lisa_residus.png)                                                      |                                            |
 | **stabilité du modele MAE R².png**           | Stabilité du modèle (MAE et R²) sur différentes itérations.                                    | ![Stabilité modèle](graphics/stabilité%20du%20modele%20MAE%20%20R².png)                        |
 
 ---
