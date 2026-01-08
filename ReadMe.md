@@ -1,75 +1,103 @@
+# Annexes
 
-# 🐶 Modélisation Prédictive de la Population Canine en France
+## Annexe 1 - Description des colonnes et variables du jeu de données ICAD
 
-Ce projet, réalisé dans le cadre d'un Master 2, vise à prédire le nombre de chiens par commune en France en se basant sur des données socio-démographiques.
+| Variable            | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| ID_GEOFLA           | Identifiant unique de la commune dans la base géographique.               |
+| CODE_COMM           | Code de la commune.                                                        |
+| INSEE_COM           | Code INSEE associé à chaque commune.                                       |
+| NOM_COMM            | Nom de la commune.                                                         |
+| STATUT              | Statut administratif de la commune (commune simple, chef-lieu, etc.).     |
+| X_CHF_LIEU          | Coordonnée X du chef-lieu de la commune.                                   |
+| Y_CHF_LIEU          | Coordonnée Y du chef-lieu de la commune.                                   |
+| X_CENTROID          | Coordonnée X du centroïde de la commune.                                   |
+| Y_CENTROID          | Coordonnée Y du centroïde de la commune.                                   |
+| Z_MOYEN             | Altitude moyenne de la commune.                                           |
+| SUPERFICIE          | Superficie de la commune.                                                  |
+| CODE_CANT           | Code du canton auquel appartient la commune.                               |
+| CODE_ARR            | Code de l’arrondissement.                                                  |
+| CODE_DEPT           | Code du département.                                                       |
+| NOM_DEPT            | Nom du département.                                                        |
+| CODE_REG            | Code de la région.                                                         |
+| NOM_REGION          | Nom de la région.                                                          |
+| Ville_origine       | Indique la commune d’origine dans le cas de fusions ou de modifications administratives. |
 
-### 📋 Résumé du projet
-
-* 
-**Objectif :** Estimer la population canine pour optimiser les prises de décision (ex: implantation de rayons animalerie).
-
-
-* 
-**Données :** Croisement des bases **I-CAD** (Identification des Carnivores Domestiques) et **INSEE** sur la période 2013-2020.
-
-
-* **Méthodologie :**
-* Nettoyage avancé et imputation temporelle des données manquantes.
-
-
-* Feature Engineering incluant le **Spatial Lag** (prise en compte du voisinage).
-
-
-* Modélisation via **Random Forest**.
-
-
-
-### 📊 Résultats clés
-
-* 
-**Performance :** Le modèle atteint un ** de 0.90** avec une erreur médiane absolue (MAE) de **38 chiens** par commune.
-
-
-* 
-**Facteur dominant :** La population humaine est la variable la plus prédictive (83% de l'importance), suivie par les effets de contexte local (voisinage).
-
-
-* 
-**Validation :** Absence de biais géographique significatif (Indice de Moran sur les résidus ).
-
-
-# Carte des résidus
-
-
-
-# Examination des résultats
-
-## Statistiques Descriptives des résultats de la mosélisation
-
-| Statistique       | ratio_exact_20 | Lower_Bound | Upper_Bound | Po_chien20 | Po_chien_clean | Pop_huma20 | pred_chiens | residu_abs  | residu_relatif | densite_pop |
-|-------------------|----------------|-------------|-------------|------------|-------------------------|------------|-------------|--------------|-----------------|--------------|
-| count            | 302            | 523         | 523         | 302        | 523                     | 523        | 523         | 523          | 523             | 523          |
-| mean             | 0.0798         | 0.00413     | 0.399153    | 35.202     | 17.086                  | 1424.344   | 129.326     | -112.240     | -1851.781       | 159.668      |
-| std              | 0.241987       | 0.011264    | 0.036891    | 82.510     | 38.327                  | 3878.666   | 281.689     | 255.522      | 1722.136        | 533.276      |
-| min              | 0.0004         | 0           | 0.269626    | 1          | 1                       | 4          | 3.526       | -4112.564    | -6999.960       | 0.35         |
-| 25%              | 0.004033       | 0           | 0.368576    | 1          | 1                       | 207        | 25.285      | -115.639     | -2804.870       | 21.525       |
-| 50% (médiane)    | 0.011441       | 0           | 0.400335    | 5          | 3                       | 487        | 49.390      | -44.854      | -1234.834       | 50.63        |
-| 75%              | 0.027752       | 0.000333    | 0.425443    | 38         | 13                      | 1334       | 130.407     | -23.057      | -457.536        | 130.55       |
-| max              | 2.384615       | 0.078765    | 0.469099    | 1096       | 381                     | 67967      | 4304.564    | -2.526       | -200.491        | 7968        |
-
+**Typologie communes** : NaN
 
 ---
 
-## **Observations Clés**
-1. **Asymétrie des données** : Les colonnes comme `Pop_huma20`, `pred_chiens`, et `densite_pop` montrent une **grande variabilité** (écarts-types élevés), présence d'outliers.
-2. **Résidus** : Les résidus négatifs (`residu_abs` et `residu_relatif`) indiquent que le modèle **sous-estime** systématiquement les valeurs prédites.
-3. **Valeurs manquantes** : Certaines colonnes (ex : `ratio_exact_20`) ont moins d'entrées (`count=302`) que d'autres (`count=523`), ce qui peut refléter des **données manquantes** ou des filtres appliqués.
+## Annexe 2 - Caractéristiques distinctives des communes à valeurs manquantes
+
+
+Comparaison des caractéristiques (Médiane Standard vs Médiane NaN)
+
+
+| Caractéristique                                      | Médiane Standard | Médiane NaN | Différence (%) |
+|------------------------------------------------------|------------------|-------------|----------------|
+| Z_MOYEN                                              | 175.000000       | 191.000     | +9.1%          |
+| Part des maisons dans le total des logements 2022  | 93.700000        | 96.500      | +3.0%          |
+| Médiane du revenu disponible par UC 2021             | 23130.000000     | 22850.000   | -1.2%          |
+| Taille moyenne des ménages 2022                      | 2.300000         | 2.200       | -4.3%          |
+| SUPERFICIE                                           | 1103.500000      | 894.000     | -19.0%         |
+| Densité de population                                | 58.820000        | 26.465      | -55.0%         |
+| Population humaine 2020                              | 669.000000       | 233.000     | -65.2%         |
+| Part des surfaces artificialisées 2018               | 4.700000         | 1.400       | -70.2%         |
 
 ---
 
+## Sous-déclaration
 
-### 👥 Auteurs
 
-Abdelkarim HADDAD, Cheick NIANG, Adam GBAGUIDI.
+Comparaison des caractéristiques (Médiane Standard vs Sous-déclaration)
 
-*Université Paris 8 - Encadré par M. Vincent GODARD*.
+
+| Caractéristique                                      | Médiane Standard | Sous-déclaration | Différence (%) |
+|------------------------------------------------------|------------------|------------------|----------------|
+| Part des maisons (2022)                              | 93.7%            | 95.1%            | +1.5%          |
+| Superficie (hectares)                                | 1 103.5          | 1 119.0          | +1.4%          |
+| Densité de population                                | 58.82            | 59.44            | +1.1%          |
+| Taille moyenne des ménages                           | 2.3              | 2.3              | 0.0%           |
+| Revenu disponible médian (UC)                        | 23 130 €         | 23 000 €         | -0.6%          |
+| Population Humaine (2020)                            | 669              | 649              | -3.0%          |
+| Altitude Moyenne (Z)                                 | 175.0            | 165.0            | -5.7%          |
+| Surfaces artificialisées                             | 4.7%             | 4.1%             | -12.8%         |
+| Ratio Chiens / Humains (2020)                        | 0.21             | 0.003            | -98.4%         |
+
+---
+
+## Surtaxe refuge
+
+
+Comparaison des caractéristiques (Médiane Standard vs Surtaxe refuge)
+
+
+| Caractéristique                                      | Médiane Standard | Médiane Surtaxe | Différence (%) |
+|------------------------------------------------------|------------------|-----------------|----------------|
+| Superficie (hectares)                                | 1 103.5          | 1 357.0         | +23.0%         |
+| Altitude Moyenne (Z)                                 | 175.0            | 204.0           | +16.6%         |
+| Part des maisons (2022)                              | 93.7%            | 96.7%           | +3.2%          |
+| Taille moyenne des ménages                           | 2.3              | 2.2             | -4.3%          |
+| Revenu disponible médian (UC)                        | 23 130 €         | 21 870 €        | -5.4%          |
+| Population Humaine (2020)                            | 669              | 303             | -54.7%         |
+| Densité de population                                | 58.82            | 21.86           | -62.8%         |
+| Surfaces artificialisées                             | 4.7%             | 1.1%            | -76.6%         |
+
+
+### Diagrame algorithme de l'imputation temporelle
+
+![imputation_temporelle](./graphics/imputation_temporelle.png)
+
+### parametrage Random Forest
+```python
+rf_final = RandomForestRegressor(
+    n_estimators=500,
+    max_depth=25,
+    random_state=42,
+    n_jobs=-1
+)
+```
+
+## liens vers galerie
+
+https://github.com/Hlkarim/Projet-tutore-Modelisation-predictive-de-la-population-canine-en-france-/blob/main/galerie.md
